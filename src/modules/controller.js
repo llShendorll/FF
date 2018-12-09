@@ -16,7 +16,6 @@ export default {
         results.innerHTML = view.renderFromVK({'items':friendsVK}, 'friends-template');
 
         for (let item of friends.items) {
-            if (item.deactivated !== 'deleted') {
                 let obj = {
                     'id':`${item.id}`,
                     'full_name':`${item.first_name} ${item.last_name}`,
@@ -26,7 +25,6 @@ export default {
                 if (friendsFavorite[item.id] === undefined) {
                     friendsVK[item.id] = obj;
                 }
-            }
         }
         
         results.innerHTML = view.renderFromVK({'items':friendsVK}, 'friends-template');
