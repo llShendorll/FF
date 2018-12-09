@@ -16,13 +16,13 @@ export default {
         results.innerHTML = view.renderFromVK({'items':friendsVK}, 'friends-template');
 
         for (let item of friends.items) {
-            if (item.first_name !== undefined || item.last_name !== undefined) {
+            if (item.deactivated !== 'deleted') {
                 let obj = {
                     'id':`${item.id}`,
                     'full_name':`${item.first_name} ${item.last_name}`,
                     'photo_100':item.photo_100
                 };
-                console.log(obj['full_name']);
+                // console.log(item);
                 if (friendsFavorite[item.id] === undefined) {
                     friendsVK[item.id] = obj;
                 }

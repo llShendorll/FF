@@ -3,7 +3,6 @@ export default {
         const template = document.getElementById(templateName).textContent;
         const render = Handlebars.compile(template);
 
-        console.log(template);
         const html = render(data);
 
         return html;
