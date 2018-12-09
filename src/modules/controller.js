@@ -16,13 +16,16 @@ export default {
         results.innerHTML = view.renderFromVK({'items':friendsVK}, 'friends-template');
 
         for (let item of friends.items) {
-            let obj = {
-                'id':`${item.id}`, 
-                'full_name':`${item.first_name} ${item.last_name}`,
-                'photo_100':item.photo_100
-            };
-            if (friendsFavorite[item.id] === undefined) {
-                friendsVK[item.id] = obj;
+            if (item.first_name !== undefined || item.last_name !== undefined) {
+                let obj = {
+                    'id':`${item.id}`,
+                    'full_name':`${item.first_name} ${item.last_name}`,
+                    'photo_100':item.photo_100
+                };
+                console.log(obj['full_name']);
+                if (friendsFavorite[item.id] === undefined) {
+                    friendsVK[item.id] = obj;
+                }
             }
         }
         
